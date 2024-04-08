@@ -28,7 +28,7 @@ def read_testcase(filepath):
 def write_testcase_csv(filepath, computed_value, total_weight, is_optimal, id = 0):
     csv_path = os.path.join(os.getcwd(), 'knapsack/knapsack_result.csv')
     with open(csv_path, 'a', newline = '') as csvfile:
-        fieldnames = ['Filepath', 'Total Value', 'Total Weight', 'Is Optimal']
+        fieldnames = ['Filepath', 'Computed Value', 'Total Weight', 'Is Optimal']
         csvwriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
         if id == 0:
             csvwriter.writeheader()
