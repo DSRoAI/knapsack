@@ -1,4 +1,4 @@
-from knapsack.utils import read_testcase, write_testcase_csv, write_testcase_txt, get_filepath
+from .utils import read_testcase, write_testcase_csv, write_testcase_txt, get_filepath
 from ortools.algorithms.python import knapsack_solver
 import random
 import time
