@@ -1,4 +1,4 @@
-from .utils import read_testcase, write_testcase_csv, write_testcase_txt, get_filepath
+from utils import read_testcase, write_testcase_csv, write_testcase_txt, get_filepath
 from ortools.algorithms.python import knapsack_solver
 import random
 import time
@@ -50,3 +50,6 @@ def main():
         print(f'Total Weight: {total_weight}')
         print(f'Is Optimal: {is_optimal}')
         print('--------------------------------------')
+
+if __name__ == '__main__':
+    main()
