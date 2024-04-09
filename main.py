@@ -38,7 +38,7 @@ def main():
     testcase_path_lst = get_filepath()
     excecute_testcase_lst = [] 
     for group in testcase_path_lst:
-        random_testcase_lst = random.sample(group, 5)
+        random_testcase_lst = random.sample(group, 15)
         excecute_testcase_lst += random_testcase_lst
 
     for id, testcase_path in enumerate(excecute_testcase_lst):
