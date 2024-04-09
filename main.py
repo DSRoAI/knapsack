@@ -19,7 +19,8 @@ def run_solver(values: list, weights: list, capacity: int, time_limit = 180):
     packed_items = []
     packed_weights = []
     total_weight = 0
-    is_optimal = (end_time - start_time) <= time_limit - 1
+    excute_time = end_time - start_time
+    is_optimal = solver.is_solution_optimal()
     for i in range(len(values)):
         if solver.best_solution_contains(i):
             packed_items.append(i)
@@ -31,7 +32,7 @@ def run_solver(values: list, weights: list, capacity: int, time_limit = 180):
     print("Packed items:", packed_items)
     print("Packed_weights:", packed_weights)
     '''
-    return computed_value, total_weight, packed_items, packed_weights, is_optimal
+    return excute_time, computed_value, total_weight, packed_items, packed_weights, is_optimal
 
 def main():
     testcase_path_lst = get_filepath()
@@ -42,9 +43,10 @@ def main():
 
     for id, testcase_path in enumerate(excecute_testcase_lst):
         number_of_items, capacity, values, weights = read_testcase(testcase_path)
-        computed_value, total_weight, packed_items, packed_weights, is_optimal = run_solver(values, weights, capacity)
+        testcase_path = testcase_path.replace('/kaggle/working/knapsack/', '')
+        excute_time, computed_value, total_weight, packed_items, packed_weights, is_optimal = run_solver(values, weights, capacity)
         write_testcase_csv(testcase_path, computed_value, total_weight, is_optimal, id)
-        write_testcase_txt(testcase_path, computed_value, total_weight, packed_items, packed_weights, id)
+        write_testcase_txt(testcase_path, excute_time, computed_value, total_weight, packed_items, packed_weights, id)
         print(f'Filepath: {testcase_path}')
         print(f'Computed Value: {computed_value}')
         print(f'Total Weight: {total_weight}')
