@@ -26,7 +26,7 @@ def read_testcase(filepath):
     return number_of_items, capacity, values, weights
 
 def write_testcase_csv(filepath, computed_value, total_weight, is_optimal, id = 0):
-    csv_path = os.path.join(os.getcwd(), 'knapsack_result.csv')
+    csv_path = os.path.join(os.getcwd(), 'knapsack/knapsack_result.csv')
     with open(csv_path, 'a', newline = '') as csvfile:
         fieldnames = ['Filepath', 'Computed Value', 'Total Weight', 'Is Optimal']
         csvwriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -40,7 +40,7 @@ def write_testcase_csv(filepath, computed_value, total_weight, is_optimal, id = 
         })
 
 def write_testcase_txt(filepath, excute_time, computed_value, total_weight, packed_items, packed_weights, id = 0):
-    txt_path = os.path.join(os.getcwd(), 'knapsack_result.txt')
+    txt_path = os.path.join(os.getcwd(), 'knapsack/knapsack_result.txt')
     with open(txt_path, 'a') as txtfile:
         txtfile.write(f'------------------Id: {id}------------------\n')
         txtfile.write(f'Filepath: {filepath}\n')
@@ -52,7 +52,7 @@ def write_testcase_txt(filepath, excute_time, computed_value, total_weight, pack
         txtfile.write('--------------------------------------\n')
 
 def get_filepath():
-    testcase_dir = os.path.join(os.getcwd(), 'kplib')
+    testcase_dir = os.path.join(os.getcwd(), 'knapsack/kplib')
     parent_dir_lst = [os.path.join(testcase_dir, dir) for dir in os.listdir(testcase_dir) if os.path.isdir(os.path.join(testcase_dir, dir))]
 
     n_dir_lst = []
